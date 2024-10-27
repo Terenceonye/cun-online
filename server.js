@@ -31,7 +31,7 @@ app.post("/api/course", async (req, res) => {
     // Define the email content
     const mailOptions = {
         from: `"Course Inquiry" <${process.env.EMAIL_USER}>`,
-        to: "onyeweketerence@gmail.com",
+        to: "online@claretianuniversity.edu.ng",
         subject: `New Course Inquiry: ${subject}`,
         html: template( { name, email, program, subject, message } ),
     };
