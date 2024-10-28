@@ -46,6 +46,32 @@ app.post("/api/course", async (req, res) => {
     }
 });
 
+//subscribe submission
+app.post("/api/subscribe", async (req, res) => {
+    const { email } = req.body;
+
+    if (!email) {
+        return res.status(400).json({ message: "Email field is empty!" });
+    }
+
+    const mailOptions = {
+        from: `"Newsletter Subscription" <${process.env.EMAIL_USER}>`,
+        to: "onyeweketerence@gmail.com", // Change this to your subscription email
+        subject: `New Newsletter Subscription`,
+        text: `New subscriber: ${email}`,
+    };
+
+    // Send the email
+    try {
+        await transporter.sendMail(mailOptions);
+        res.status(200).json({ message: "SUBSCRIPTION SUCCESSFUL" });
+    } catch (error) {
+        console.error("Error sending subscription email:", error);
+        res.status(500).json({ message: "THERE WAS AN ERROR SUBSCRIBING" });
+    }
+});
+
+
 // Start the server
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
