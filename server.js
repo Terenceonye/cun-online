@@ -56,7 +56,7 @@ app.post("/api/subscribe", async (req, res) => {
 
     const mailOptions = {
         from: `"Newsletter Subscription" <${process.env.EMAIL_USER}>`,
-        to: "onyeweketerence@gmail.com", // Change this to your subscription email
+        to: "online@claretianuniversity.edu.ng", 
         subject: `New Newsletter Subscription`,
         text: `New subscriber: ${email}`,
     };
