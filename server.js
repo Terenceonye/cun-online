@@ -31,7 +31,7 @@ app.post("/api/course", async (req, res) => {
     // Define the email content
     const mailOptions = {
         from: `"Course Inquiry" <${process.env.EMAIL_USER}>`,
-        to: "online@claretianuniversity.edu.ng",
+        to: "vivimarny@gmail.com",
         subject: `New Course Inquiry: ${subject}`,
         html: template( { name, email, program, subject, message } ),
     };
@@ -56,7 +56,7 @@ app.post("/api/subscribe", async (req, res) => {
 
     const mailOptions = {
         from: `"Newsletter Subscription" <${process.env.EMAIL_USER}>`,
-        to: "online@claretianuniversity.edu.ng", 
+        to: "vivimarny@gmail.com", 
         subject: `New Newsletter Subscription`,
         text: `New subscriber: ${email}`,
     };
